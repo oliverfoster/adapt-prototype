@@ -1,0 +1,28 @@
+{
+  "title": "Page",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string",
+      "description": "Page Id",
+      "minLength": 4,
+      "default": "co-01"
+    },
+    "_children": {
+      "type": "array",
+      "format": "tabs",
+      "title": "Articles",
+      "uniqueItems": true,
+      "items": {
+        "title": "Article",
+        "headerTemplate": "{{i}} - {{self._id}}",
+        "oneOf": [
+          {
+            "$ref": "article.json",
+            "title": "Article"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+    "type": "array",
+    "title": "Content Objects",
+    "format": "tabs",
+    "items": {
+      "title": "Content Object",
+      "headerTemplate": "{{i}} - {{self.name}}",
+      "oneOf": [
+        {
+          "$ref": "page.json",
+          "title": "Page"
+        },
+        {
+          "$ref": "menu.json",
+          "title": "Menu"
+        }
+      ]
+    }
+}

@@ -32,9 +32,26 @@
       // We will use this to seed the initial editor 
       // and to provide a "Restore to Default" button.
       var starting_value = {
-		  "_id": "course",
-		  "_children": []
-		};
+        name: "John Smith",
+        age: 35,
+        gender: "male",
+        location: {
+          city: "San Francisco",
+          state: "California"
+        },
+        pets: [
+          {
+            name: "Spot",
+            type: "dog",
+            fixed: true
+          },
+          {
+            name: "Whiskers",
+            type: "cat",
+            fixed: false
+          }
+        ]
+      };
       
       // Initialize the editor
       var editor = new JSONEditor(document.getElementById('editor_holder'),{
@@ -43,23 +60,7 @@
         
         // The schema for the editor
         schema: {
-          type: "array",
-          title: "People",
-          format: "tabs",
-          items: {
-            title: "Person",
-            headerTemplate: "{{i}} - {{self.name}}",
-            oneOf: [
-              {
-                $ref: "basic_person.json",
-                title: "Basic Person"
-              },
-              {
-                $ref: "person.json",
-                title: "Complex Person"
-              }
-            ]
-          }
+          "$ref": "course.json"
         },
         
         // Seed the form with a starting value
@@ -69,7 +70,7 @@
         no_additional_properties: true,
         
         // Require all properties by default
-        required_by_default: false
+        required_by_default: true
       });
       
       // Hook up the submit button to log to the console

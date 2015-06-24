@@ -1,0 +1,32 @@
+{
+  "title": "Course",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string",
+      "description": "Course ID",
+      "minLength": 4,
+      "default": "course"
+    },
+    "_children": {
+      "type": "array",
+      "format": "tabs",
+      "title": "Content Objects",
+      "uniqueItems": true,
+      "items": {
+        "title": "Content Object",
+        "headerTemplate": "{{i}} - {{self._id}}",
+        "oneOf": [
+          {
+            "$ref": "page.json",
+            "title": "Page"
+          },
+          {
+            "$ref": "menu.json",
+            "title": "Menu"
+          }
+        ]
+      }
+    }
+  }
+}

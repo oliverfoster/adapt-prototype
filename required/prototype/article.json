@@ -1,0 +1,13 @@
+{
+  "title": "Article",
+  "type": "object",
+  "id": "article",
+  "properties": {
+    "_id": {
+      "type": "string",
+      "description": "Article Id",
+      "minLength": 4
+    }
+  }
+}
+

@@ -1,0 +1,1 @@
+var parentWindow = window.top;

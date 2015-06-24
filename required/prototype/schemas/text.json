@@ -1,0 +1,16 @@
+{
+	"$ref": "schemas/blank.json",
+	"title": "Text",
+	"id": "text",
+	"properties": {
+	    "title": {
+	        "type": "string"
+	    },
+	    "displayTitle": {
+	        "type": "string"
+	    },
+	    "body": {
+	        "type": "string"
+	    }
+  	}
+}

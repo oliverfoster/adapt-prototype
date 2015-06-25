@@ -33,6 +33,26 @@
             "type":"string",
             "required":false,
             "title": "Alternative text"
+          },
+         "_graphic": {
+            "type":"object",
+            "options": {
+              "collapsed": true
+            },
+            "title": "Graphic Item",
+            "required":true,
+            "properties":{
+              "alt": {
+                "type":"string",
+                "required":false,
+                "title": "Alternative text"
+              },
+              "src": {
+                "type":"string",
+                "required":false,
+                "title": "Image Source"
+              }
+            }
           }
         }
       }

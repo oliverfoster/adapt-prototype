@@ -8,6 +8,16 @@
       "required":false,
       "title":"Mobile only instruction text"
     },
+    "_hasNavigationInTextArea": {
+      "type": "boolean"
+    },
+    "_setCompletionOn": {
+      "type": "string",
+      "enum": [
+        "allItems",
+        "inview"
+      ]
+    },
     "_items": {
       "type":"array",
       "required":false,

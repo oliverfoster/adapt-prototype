@@ -1,0 +1,69 @@
+{
+	"$ref": "schemas/text.json",
+	"title": "Assessment Results",
+	"id": "assessmentResults",
+	"properties":{
+    "_isVisibleBeforeCompletion": {
+      "type":"boolean",
+      "required":true,
+      "title": "Is the component visible before completion"
+    },
+    "_retry": {
+    	"options": {
+				"collapsed": true
+			},
+      "type":"object",
+      "required":true,
+      "title": "Retry Section",
+      "properties":{
+        "button": {
+          "type":"string",
+          "required":true,
+          "title": "Retry button text"
+        },
+        "feedback": {
+          "type":"string",
+          "required":true,
+          "title": "Feedback body text"
+        }
+      }
+    },
+    "_completionBody": {
+      "type":"string",
+      "required":true,
+      "title": "Completion body text"
+    },
+    "_bands": {
+    	"options": {
+				"collapsed": true
+			},
+			"format":"tabs",
+      "type":"array",
+      "required":true,
+      "title": "Feedback Bands",
+      "items": {
+          "type":"object",
+          "required":true,
+          "headerTemplate": "{{ i0 }}",
+          "properties":{
+            "_score": {
+              "type":"number",
+              "required":true,
+              "title": "Starting at score"
+            },
+            "feedback": {
+              "type":"string",
+              "required":true,
+              "minLength": 1,
+              "title": "Display feedback"
+            },
+            "_allowRetry": {
+              "type":"boolean",
+              "required":true,
+              "title": "All rety button"
+            }
+          }
+        }
+    }
+  }
+}

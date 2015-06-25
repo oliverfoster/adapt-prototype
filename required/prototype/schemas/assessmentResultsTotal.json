@@ -1,0 +1,44 @@
+{
+	"$ref": "schemas/text.json",
+	"title": "Assessment Results Total",
+	"id": "assessmentResultsTotal",
+	"properties":{
+    "_isVisibleBeforeCompletion": {
+      "type":"boolean",
+      "required":true,
+      "title": "Is the component visible before completion"
+    },
+    "_completionBody": {
+      "type":"string",
+      "required":true,
+      "title": "Completion body text"
+    },
+    "_bands": {
+    	"options": {
+				"collapsed": true
+			},
+			"format":"tabs",
+      "type":"array",
+      "required":true,
+      "title": "Feedback Bands",
+      "items": {
+          "type":"object",
+          "required":true,
+          "headerTemplate": "{{ i0 }}",
+          "properties":{
+            "_score": {
+              "type":"number",
+              "required":true,
+              "title": "Starting at score"
+            },
+            "feedback": {
+              "type":"string",
+              "required":true,
+              "minLength": 1,
+              "title": "Display feedback"
+            }
+          }
+        }
+    }
+  }
+}

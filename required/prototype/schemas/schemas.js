@@ -10,5 +10,7 @@ var schemas = {
 	"narrative": true,
 	"slider": true,
 	"text": true,
-	"textinput": true	
+	"textinput": true,
+	"assessmentResults": true,
+	"assessmentResultsTotal": true
 };

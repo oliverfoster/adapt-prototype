@@ -1,5 +1,7 @@
 {
 	"$ref": "schemas/text.json",
+  "title": "Matching",
+  "id": "matching",
 	"properties": {
     "_attempts": {
       "type":"number",

@@ -1,14 +1,14 @@
 var schemas = {
-	"blank": true,
-	"text": true,
-	"graphic": true,
 	"accordion": true,
-	"narrative": true,
-	"hotgraphic": true,
-	"mcq": true,
+	"blank": true,
 	"gmcq": true,
+	"graphic": true,
+	"hotgraphic": true,
 	"matching": true,
-	"textinput": true,
+	"mcq": true,
+	"media": true,
+	"narrative": true,
 	"slider": true,
-	"media": true
+	"text": true,
+	"textinput": true	
 };

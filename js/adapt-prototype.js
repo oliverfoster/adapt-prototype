@@ -68,6 +68,7 @@ define([
 		},
 		onRemove: function() {
 			this.views = [];
+			editView.$el.css("display","");
 		},
 		findViewById: function(id) {
 			for (var i = 0, l = this.views.length; i < l; i++) {

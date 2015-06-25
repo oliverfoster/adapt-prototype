@@ -19,11 +19,15 @@ define([
 			if (!this.$currentComponentContainer) return;
 
 			var offset = this.$currentComponentContainer.offset();
+			var width = this.$currentComponentContainer.width();
+
+			var offsetWidth = this.$el.width();
+
 			editView.$el.css({
 				top: offset['top']+"px",
-				right: offset['left']+"px",
+				left: (offset['left']+width-offsetWidth)+"px",
 				display: "block"
-			});
+			}).html("Edit " + this.currentComponentID)
 		},
 		openEditWindow: function() {
 			var prototypeWindow = window.open("prototype/index.html", "_blank");
@@ -52,7 +56,8 @@ define([
 		},
 		onComponentPreRender: function(view) {
 			this.views.push(view);
-			view.$el.addClass("prototype-component").attr("data-prototype-id", view.model.get("_id"));
+			var id = view.model.get("_id");
+			view.$el.addClass("prototype-component").attr("data-prototype-id", id);
 		},
 		onComponentFocus: function(event) {
 			var $componentContainer = $(event.currentTarget);

@@ -3,6 +3,12 @@ $(function(){
       // We will use this to seed the initial editor 
       // and to provide a "Restore to Default" button.
       var starting_value = data.view.model.toJSON();
+
+      var componentName =  data.view.model.get("_component");
+      var componentId =  data.view.model.get("_id");
+      var schemaName = "text";
+
+      if (schemas[componentName]) schemaName = componentName;
       
       // Initialize the editor
       var editor = new JSONEditor(document.getElementById('editor_holder'),{
@@ -11,7 +17,7 @@ $(function(){
         
         // The schema for the editor
         schema: {
-          "$ref": "schemas/" + data.view.model.get("_component") + ".json"
+          "$ref": "schemas/" + schemaName + ".json"
         },
         
         // Seed the form with a starting value
@@ -34,13 +40,20 @@ $(function(){
           data.view.model.set(k, updated[k]);
         }
 
-        data.view.$el.html("");
-        data.view.initialize();
-        data.view.$el.velocity("stop", true).css({
-          "background-color": "#ffff00"
-        }).velocity({
-          "backgroundColor": "#ffffff"
-        }, {duration: 3000 });
+        parentWindow.Backbone.history.navigate(parentWindow.location.hash, {trigger: true, replace: true});
+        Adapt.once("pageView:ready", function(){
+          Adapt.scrollTo("."+componentId);
+
+          parentWindow.$("."+componentId).velocity("stop", true).css({
+            "background-color": "#ffff00"
+          }).velocity({
+            "backgroundColor": "#ffffff"
+          }, {duration: 2000 });
+        });
+
+        
+
+        window.close();
 
       });
       

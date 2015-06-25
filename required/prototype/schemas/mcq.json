@@ -1,0 +1,43 @@
+{
+	"$ref": "schemas/text.json",
+	"title": "MCQ",
+	"id": "mcq",
+	"properties": {
+		"_attempts": {
+			"type": "number"
+		},
+		"_questionWeight": {
+			"type": "number"
+		},
+		"_isRandom": {
+			"type": "boolean"
+		},
+		"_selectable": {
+			"type": "number"
+		},
+		"_items": {
+		    "type": "array",
+			"format": "tabs",
+			"title": "_items",
+			"options": {
+				"collapsed": true
+			},
+			"uniqueItems": false,
+			"items": {
+				"type": "object",
+				"headerTemplate": "{{ i0 }}",
+				"properties": {
+					"text": {
+						"type": "string"
+					},
+					"feedback": {
+						"type": "string"
+					},
+					"_shouldBeSelected": {
+						"type": "boolean"
+					}
+				}
+			}
+		}
+  	}
+}

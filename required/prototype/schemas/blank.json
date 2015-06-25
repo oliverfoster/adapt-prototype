@@ -6,6 +6,18 @@
         "_id": {
             "type": "string"
         },
+        "_parentId": {
+            "type": "string"
+        },
+        "_type": {
+            "type": "string"
+        },
+        "_component": {
+            "type": "string"
+        },
+        "_classes": {
+            "type": "string"
+        },
         "_isComplete": {
             "type": "boolean"
         },

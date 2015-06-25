@@ -1,0 +1,92 @@
+{
+	"$ref": "schemas/text.json",
+	"title": "Hot Graphic",
+	"id": "hotgraphic",
+	"properties": {
+		"_canCycleThroughPagination": {
+			"type": "boolean"
+		},
+		"_hidePagination": {
+			"type": "boolean"
+		},
+		"mobileInstruction": {
+			"type": "string"
+		},
+		"mobileBody": {
+			"type": "string"
+		},
+		"_setCompletionOn": {
+			"type": "string",
+			"enum": [
+				"allItems",
+				"inview"
+			]
+		},
+		"_graphic": {
+			"type": "object",
+			"options": {
+				"collapsed": true
+			},
+			"name": "_graphic",
+			"properties": {
+				"src": {
+					"type": "string"
+				},
+				"alt": {
+					"type": "string"
+				},
+				"title": {
+					"type": "string"
+				}
+			}
+		},
+		"_items": {
+		    "type": "array",
+			"format": "tabs",
+			"title": "_items",
+			"options": {
+				"collapsed": true
+			},
+			"uniqueItems": false,
+			"items": {
+				"type": "object",
+				"headerTemplate": "{{ i0 }}",
+				"properties": {
+					"title": {
+						"type": "string"
+					},
+					"body": {
+						"type": "string"
+					},
+					"strapline": {
+						"type": "string"
+					},
+					"pinAlt": {
+						"type": "string"
+					},
+					"_top": {
+						"type": "number"
+					},
+					"_left": {
+						"type": "number"
+					},
+					"_graphic": {
+						"type": "object",
+						"options": {
+							"collapsed": true
+						},
+						"name": "_graphic",
+						"properties": {
+							"src": {
+								"type": "string"
+							},
+							"alt": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
+  	}
+}

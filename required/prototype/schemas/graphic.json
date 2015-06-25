@@ -1,0 +1,39 @@
+{
+  "$ref": "schemas/text.json",
+  "title": "Graphic",
+  "id": "graphic",
+  "properties":{
+    "_graphic": {
+      "type":"object",
+      "options": {
+        "collapsed": true
+      },
+      "title": "Graphic Item",
+      "required":true,
+      "properties":{
+        "alt": {
+          "type":"string",
+          "required":false,
+          "title": "Alternative text"
+        },
+        "large": {
+          "type":"string",
+          "required":true,
+          "minLength": 1,
+          "title": "Large graphic"
+        },
+        "small": {
+          "type":"string",
+          "required":true,
+          "minLength": 1,
+          "title": "Small graphic"
+        },
+        "title": {
+          "type":"string",
+          "required":false,
+          "title": "Graphic title"
+        }
+      }
+    }
+  }
+}

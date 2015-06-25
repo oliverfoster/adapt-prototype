@@ -2,45 +2,40 @@
 	"$ref": "schemas/text.json",
 	"title": "Accordion",
 	"id": "accordion",
-	"properties": {
-		"_items": {
-		    "type": "array",
-			"format": "tabs",
-			"title": "_items",
+	  "properties":{
+    "_items": {
+    	"format": "tabs",
 			"options": {
 				"collapsed": true
 			},
-			"uniqueItems": false,
-			"items": {
-				"type": "object",
-				"headerTemplate": "{{ i0 }}",
-				"properties": {
-					"alt": {
-						"type": "string"
-					},
-					"title": {
-						"type": "string"
-					},
-					"body": {
-						"type": "string"
-					},
-					"_graphic": {
-						"type": "object",
-						"options": {
-							"collapsed": true
-						},
-						"name": "_graphic",
-						"properties": {
-							"src": {
-								"type": "string"
-							},
-							"alt": {
-								"type": "string"
-							}
-						}
-					}
-				}
-			}
-		}
-  	}
+      "type":"array",
+      "required":true,
+      "minItems": 1,
+      "title": "Items",
+      "items": {
+      	"headerTemplate": "{{ i0 }}",
+        "type":"object",
+        "required":true,
+        "properties":{
+          "title": {
+            "type":"string",
+            "required":true,
+            "title": "Title",
+            "minLength": 1
+          },
+          "body": {
+            "type":"string",
+            "required":true,
+            "title": "Content text",
+            "minLength": 1
+          },
+          "alt": {
+            "type":"string",
+            "required":false,
+            "title": "Alternative text"
+          }
+        }
+      }
+    }
+  }
 }

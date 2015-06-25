@@ -1,8 +1,6 @@
 {
 	"$ref": "schemas/text.json",
-	"title": "MCQ",
-	"id": "mcq",
-	"properties":{
+	"properties": {
     "_attempts": {
       "type":"number",
       "required":true,
@@ -18,23 +16,73 @@
     },
     "_questionWeight": {
       "type":"number",
-      "required":false,
       "title": "Question weight"
     },
-    "_selectable": {
-      "type":"number",
+    "placeholder": {
+      "type":"string",
       "required":true,
-      "minimum": 1,
-      "title": "Selectable answers"
+      "minLength": 1,
+      "title": "Selection placeholder text"
     },
-    "_feedback": {
-    	"options": {
+    "_items": {
+      "type":"array",
+      "required":true,
+      "minItems": 1,
+      "title": "Matching questions",
+      "format": "tabs",
+      "options": {
 				"collapsed": true
 			},
+      "items": {
+        "type":"object",
+        "required":true,
+        "headerTemplate": "{{ i0 }}",
+        "properties": {
+          "text": {
+            "type":"string",
+            "required":true,
+            "minLength": 1,
+            "title": "Question text"
+          },
+          "_options": {
+            "type":"array",
+            "required":true,
+            "minItems": 1,
+            "title": "Matching answers",
+            "options": {
+				"collapsed": true
+			},
+            "items": {
+              "type":"object",
+              "headerTemplate": "{{ i0 }}",
+              "required":true,
+              "properties":{
+                "_isCorrect": {
+                  "type":"boolean",
+                  "required":true,
+                  "default":false,
+                  "title": "Correct answer"
+                },
+                "text": {
+                  "type":"string",
+                  "required":true,
+                  "minLength": 1,
+                  "title": "Matching answer text"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "_feedback": {
       "type":"object",
       "required":true,
+      "options": {
+				"collapsed": true
+			},
       "title": "Feedback text",
-      "properties":{
+      "properties": {
         "_incorrect": {
           "type":"object",
           "required":true,
@@ -42,8 +90,6 @@
           "properties":{
             "final": {
               "type":"string",
-              "required":true,
-              "minLength": 1,
               "title": "Incorrect final answer"
             },
             "notFinal": {
@@ -56,7 +102,7 @@
           "type":"object",
           "required":true,
           "title": "Feedback when answer is partly correct",
-          "properties":{
+          "properties": {
             "final": {
               "type":"string",
               "required":true,
@@ -76,40 +122,6 @@
           "title": "Feedback for correct answer"
         }
       }
-    },
-    "_items": {
-    	"options": {
-				"collapsed": true
-			},
-			"format":"tabs",
-
-      "type":"array",
-      "required":true,
-      "title": "Question answers",
-      "items":
-        {
-          "type":"object",
-          "required":true,
-          "headerTemplate": "{{ i0 }}",
-          "properties":{
-            "_shouldBeSelected": {
-              "type":"boolean",
-              "required":true,
-              "title": "Correct answer"
-            },
-            "text": {
-              "type":"string",
-              "required":true,
-              "minLength": 1,
-              "title": "Answer text"
-            },
-            "feedback": {
-              "type":"string",
-              "required":false,
-              "title": "Incorrect answer feedback (selectable answers must be 1)"
-            }
-          }
-        }
     }
   }
 }

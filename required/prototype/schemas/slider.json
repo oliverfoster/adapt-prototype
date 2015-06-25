@@ -1,0 +1,119 @@
+{
+	"$ref": "schemas/text.json",
+	"title": "Slider",
+	"id": "slider",
+	"properties":{
+    "_attempts": {
+      "type":"number",
+      "required":true,
+      "default":1,
+      "minimum":1,
+      "title": "Number of attempts"
+    },
+    "_correctAnswer": {
+      "type":"string",
+      "title": "Single correct answer"
+    },
+    "_correctRange": {
+      "type":"object",
+      "options": {
+				"collapsed": true
+			},
+      "title": "Correct answer range",
+      "properties":{
+        "_bottom": {
+          "type":"number",
+          "title": "Correct answer range start"
+        },
+        "_top": {
+          "type":"number",
+          "title": "Correct answer range end"
+        }
+      }
+    },
+    "_questionWeight": {
+      "type":"number",
+      "title": "Question weight"
+    },
+    "_scaleEnd": {
+      "type":"number",
+      "required":true,
+      "default":10,
+      "minimum":1,
+      "title": "Scale end"
+    },
+    "_scaleStart": {
+      "type":"number",
+      "required":true,
+      "default":1,
+      "minimum":1,
+      "title": "Scale start"
+    },
+    "_showNumber": {
+      "type":"boolean",
+      "required":true,
+      "title": "Show number scale"
+    },
+    "_showScaleIndicator": {
+      "type":"boolean",
+      "required":true,
+      "title": "Show scale position indicator"
+    },
+    "_feedback": {
+      "type": "object",
+      "options": {
+			"collapsed": true
+		},
+      "required":true,
+      "title": "Feedback text",
+      "properties" : {
+        "_incorrect": {
+          "type":"object",
+          "required": true,
+          "title": "Feedback for incorrect answers",
+          "properties": {
+            "final": {
+              "type": "string",
+              "title": "Incorrect final answer"
+            },
+            "notFinal": {
+              "type": "string",
+              "title": "Incorrect non final answer"
+            }
+          }
+        },
+        "_partlyCorrect": {
+          "type": "object",
+          "required": true,
+          "title": "Feedback when answer is partly correct",
+          "properties": {
+            "final": {
+              "type": "string",
+              "required": true,
+              "minLength": 1,
+              "title": "Partially correct final answer"
+            },
+            "notFinal": {
+              "type": "string",
+              "title": "Partially correct non final answer"
+            }
+          }
+        },
+        "correct": {
+          "type": "string",
+          "required": true,
+          "minLength": 1,
+          "title": "Feedback for correct answer"
+        }
+      }
+    },
+    "labelEnd": {
+      "type": "string",
+      "title": "Slider scale end label"
+    },
+    "labelStart": {
+      "type": "string",
+      "title": "Slider scale start label"
+    }
+  }
+}

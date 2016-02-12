@@ -25,7 +25,7 @@ define([
 
 			editView.$el.css({
 				top: offset['top']+"px",
-				left: (offset['left']+width-offsetWidth)+"px",
+				left: (offset['left']+width-offsetWidth)-50+"px",
 				display: "block"
 			}).html("Edit " + this.currentComponentID)
 		},
